@@ -19,7 +19,7 @@ model = LinearRegression()
 model.fit(X, y)
 
 # Make a prediction
-predicted_price = model.predict([[1800, 3]])[0]
+predicted_price = model.predict([[180000, 3]])[0]
 print("Model trained successfully")
 print("Predicted price for 1800 sqft, 3 bedrooms:", predicted_price)
 
