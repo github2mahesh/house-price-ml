@@ -18,5 +18,11 @@ y = df['price']
 model = LinearRegression()
 model.fit(X, y)
 
+# Make a prediction
+predicted_price = model.predict([[1800, 3]])[0]
 print("Model trained successfully")
-print("Predicted price for 1800 sqft, 3 bedrooms:", model.predict([[1800, 3]])[0])
+print("Predicted price for 1800 sqft, 3 bedrooms:", predicted_price)
+
+# Simple CI check: fail if prediction not in expected range
+if not (200000 <= predicted_price <= 300000):
+    raise ValueError(f"Prediction {predicted_price} is out of expected range! Failing CI.")
